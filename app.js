@@ -1,16 +1,16 @@
 const express = require('express')
 const validateBody = require('./middleware/validate.mw')
-const UserController = require('./controllers/user.controller')
+const TaskController = require('./controllers/tast.controller')
 
 const app = express() // Создание сервера
 
 const bodyParser = express.json()
 
 /* ROUTING: METHOD PATH */
-app.get('/users', UserController.getUsers)
-app.get('/user/:id', UserController.getUser)
-app.post('/user', bodyParser, validateBody, UserController.createUser)
-app.put('/user/:id', bodyParser, validateBody, UserController.updateUser)
-app.delete('/user/:id', UserController.deleteUser)
+app.get('/tasks', TaskController.getTasks)
+app.get('/task/:id', TaskController.getTask)
+app.post('/task', bodyParser, validateBody, TaskController.createTask)
+app.put('/task/:id', bodyParser, validateBody, TaskController.updateTask)
+app.delete('/task/:id', TaskController.deleteTask)
 
 module.exports = app

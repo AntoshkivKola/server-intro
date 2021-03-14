@@ -3,18 +3,21 @@ const { Task } = require('../models')
 module.exports.createTask = async (req, res, next) => {
   try {
     const { body: validatedTask } = req
-    const Task = await new Task(validatedTask)
-    Task.save(validatedTask)
-    res.status(201).send(Task)
+    
+    const task = await new Task(validatedTask)
+    
+    Task.save(task)
+    res.status(201).send(task)
   } catch (error) {
+    console.log(error.message)
     res.status(400).send('CANT CREATE Task')
   }
 }
 
 module.exports.getTasks = async (req, res, next) => {
   try {
-    const Tasks = await Task.findAll()
-    res.status(200).send(Tasks)
+    const tasks = await Task.findAll()
+    res.status(200).send(tasks)
   } catch (error) {
     res.status(404).send('NO TaskS')
   }

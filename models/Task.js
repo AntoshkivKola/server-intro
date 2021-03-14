@@ -9,7 +9,7 @@ class Task {
     const time = new Date()
     this.createdAt = time
     this.updatedAt = time
-
+    
     return Promise.resolve(this)
   }
 
