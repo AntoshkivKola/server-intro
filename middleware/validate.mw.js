@@ -1,24 +1,11 @@
 const yup = require('yup')
 
 const validationSchema = yup.object({
-  name: yup
+  body: yup
     .string()
     .trim()
     .required(),
-  email: yup
-    .string()
-    .trim()
-    .email()
-    .required(),
-  password: yup
-    .string()
-    .trim()
-    .required(),
-  gender: yup
-    .string()
-    .trim()
-    .required(),
-  isSubscribed: yup.boolean()
+  isDone: yup.boolean().required()
 })
 
 module.exports = async (req, res, next) => {
