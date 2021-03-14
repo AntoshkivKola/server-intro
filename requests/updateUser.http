@@ -1,0 +1,10 @@
+PUT http://localhost:3000/user/1 HTTP/1.1
+Content-type: application/json
+
+{
+  "name": "TEST JSON",
+  "email":"newmail@mail.com",
+  "password":"TTTTTTTtttt12",
+  "gender":"male",
+  "isSubscribed": true
+}
